@@ -8,18 +8,24 @@
       <% for (const entry of entries) { %>
         <div class="card shadow-sm mb-4">
           <div class="card-body">
-            <h5 class="card-title"><%- entry.titulo %></h5>
-            <p class="card-text"><%- entry.nota %></p>
+            <h5 class="card-title"><%= entry.titulo %></h5>
+            <p class="card-text"><%= entry.nota %></p>
             <p class="card-text">
               <small class="text-muted">
-                <%- entry.fecha %>
+                Nota creada el
+                <%= entry.fecha.getDate() %>/<%= entry.fecha.getMonth() + 1 %>/<%= entry.fecha.getFullYear() %>
               </small>
             </p>  
+          </div>
+          <div class="card-footer">
+            <a href="/entry/<%= entry.id %>" class="text-danger">
+              Eliminar
+            </a>
           </div>
         </div>
       <% } %>
     <% } else { %>
-      <p>¡No hay notas! Agregue una <a href="/new-entry">nueva nota</a>.</p>
+      <p>¡No hay notas! Agregue una <a href="/new-entry">nueva</a>.</p>
     <% } %>
   </div>
 </main>

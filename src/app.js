@@ -1,6 +1,7 @@
 const express = require('express'),
   path = require('path'),
-  morgan = require('morgan');
+  morgan = require('morgan'),
+  { createConnection } = require('./db');
 
 const app = express();
 
@@ -20,6 +21,9 @@ app.use(require('./routes/entries.routes'));
 app.use((req, res) => {
   res.status(404).render('404');
 });
+
+// Inicializar DB
+createConnection();
 
 // Inicializar App
 app.listen(app.get('port'), () =>
