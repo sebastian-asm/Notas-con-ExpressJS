@@ -1,0 +1,27 @@
+<%- include('shared/header') %>
+
+<main class="container mt-4">
+  <h2>Listado de notas</h2>
+
+  <div class="mt-4">
+    <% if (entries.length) { %>
+      <% for (const entry of entries) { %>
+        <div class="card shadow-sm mb-4">
+          <div class="card-body">
+            <h5 class="card-title"><%- entry.titulo %></h5>
+            <p class="card-text"><%- entry.nota %></p>
+            <p class="card-text">
+              <small class="text-muted">
+                <%- entry.fecha %>
+              </small>
+            </p>  
+          </div>
+        </div>
+      <% } %>
+    <% } else { %>
+      <p>¡No hay notas! Agregue una <a href="/new-entry">nueva nota</a>.</p>
+    <% } %>
+  </div>
+</main>
+
+<%- include('shared/footer') %>
